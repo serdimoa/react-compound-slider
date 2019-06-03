@@ -187,8 +187,8 @@ class Slider extends PureComponent {
       [validUpKeys, validDownKeys] = [validDownKeys, validUpKeys]
     }
 
-    // e.stopPropagation && e.stopPropagation()
-    // e.preventDefault && e.preventDefault()
+    e.stopPropagation && e.stopPropagation()
+    e.preventDefault && e.preventDefault()
 
     const found = handles.find(value => {
       return value.key === handleID
@@ -231,10 +231,12 @@ class Slider extends PureComponent {
     } = this
 
     if (!isTouch) {
+      const element = document.getElementById('root')
+      element.classList.add('remove_user_select')
       // e.preventDefault && e.preventDefault()
     }
 
-    // e.stopPropagation && e.stopPropagation()
+    e.stopPropagation && e.stopPropagation()
 
     const found = handles.find(value => {
       return value.key === handleID
@@ -435,7 +437,8 @@ class Slider extends PureComponent {
     onSlideEnd(handles.map(d => d.val), { activeHandleID })
 
     this.setState({ activeHandleID: null })
-
+    const element = document.getElementById('root')
+    element.classList.remove('remove_user_select')
     if (isBrowser) {
       document.removeEventListener('mousemove', this.onMouseMove)
       document.removeEventListener('mouseup', this.onMouseUp)
@@ -452,7 +455,8 @@ class Slider extends PureComponent {
     onSlideEnd(handles.map(d => d.val), { activeHandleID })
 
     this.setState({ activeHandleID: null })
-
+    const element = document.getElementById('root')
+    element.classList.remove('remove_user_select')
     if (isBrowser) {
       document.removeEventListener('touchmove', this.onTouchMove)
       document.removeEventListener('touchend', this.onTouchEnd)
