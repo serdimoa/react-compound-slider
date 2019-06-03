@@ -187,8 +187,8 @@ class Slider extends PureComponent {
       [validUpKeys, validDownKeys] = [validDownKeys, validUpKeys]
     }
 
-    e.stopPropagation && e.stopPropagation()
-    e.preventDefault && e.preventDefault()
+    // e.stopPropagation && e.stopPropagation()
+    // e.preventDefault && e.preventDefault()
 
     const found = handles.find(value => {
       return value.key === handleID
@@ -231,10 +231,10 @@ class Slider extends PureComponent {
     } = this
 
     if (!isTouch) {
-      e.preventDefault && e.preventDefault()
+      // e.preventDefault && e.preventDefault()
     }
 
-    e.stopPropagation && e.stopPropagation()
+    // e.stopPropagation && e.stopPropagation()
 
     const found = handles.find(value => {
       return value.key === handleID
